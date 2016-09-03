@@ -18,5 +18,6 @@ controllers.controller("HomeController", [ '$scope',
   ($scope)->
 
     $scope.search = (keywords) ->
-      console.log(keywords)
+      $.post '/search', { term: keywords }, (data) ->
+        console.log(data)
 ])
