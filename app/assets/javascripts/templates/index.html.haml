@@ -1,15 +1,16 @@
 %body
   %header.row
-    %h1.text-center.col-md-6.col-md-offset-3 Find Restaurants
+    %h1.restaurants.text-center.col-md-6.col-md-offset-3 Find Restaurants
   %section.row
     %form
       .form-group.col-md-6.col-md-offset-3
-        %input.form-control{:autofocus => "", "ng-model" => "keywords", :name => "keywords", :placeholder => "What are you in the mood for?", :type => "text"}
-      .form-group.col-md-6.col-md-offset-3.text-center
-        %button.btn.btn-primary.btn-lg{"ng-click" => "search(keywords)"} Search
+        .input-group
+          %input.form-control{:autofocus => "", "ng-model" => "keywords", :name => "keywords", :placeholder => "What are you in the mood for?", :type => "text"}
+          %span.input-group-btn
+            %button.btn.btn-default{"ng-click" => "search(keywords)"} Search
   %hr
   %section.row{"ng-if" => "restaurants.length != 0"}
-    %h1.text-center.h2 Why don't you try
+    %h1.restaurants.text-center.h2 Why don't you try
     %table.table-striped.text-center.col-md-6.col-md-offset-3
       %tbody
         %tr{"ng-repeat" => "restaurant in restaurants"}
