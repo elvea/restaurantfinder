@@ -17,7 +17,11 @@ controllers = angular.module('controllers',[])
 controllers.controller("HomeController", [ '$scope',
   ($scope)->
 
+    $scope.restaurants = []
+
     $scope.search = (keywords) ->
       $.post '/search', { term: keywords }, (data) ->
-        console.log(data)
+        $scope.restaurants = data['businesses']
+        $scope.keywords = ""
+        $scope.$apply()
 ])

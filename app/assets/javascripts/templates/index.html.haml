@@ -4,10 +4,12 @@
   %section.row
     %form
       .form-group.col-md-6.col-md-offset-3
-        %label.sr-only{:for => "keywords"} Keywords
         %input.form-control{:autofocus => "", "ng-model" => "keywords", :name => "keywords", :placeholder => "What are you in the mood for?", :type => "text"}
       .form-group.col-md-6.col-md-offset-3.text-center
         %button.btn.btn-primary.btn-lg{"ng-click" => "search(keywords)"} Search
   %hr
   %section.row
     %h1.text-center.h2 Why don't you try
+    %ul.text-center
+      %li{"ng-repeat" => "restaurant in restaurants"}
+        %h5 {{restaurant.name}}
