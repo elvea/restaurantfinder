@@ -21,7 +21,10 @@ controllers.controller("HomeController", [ '$scope',
 
     $scope.search = (keywords) ->
       $.post '/search', { term: keywords }, (data) ->
-        $scope.restaurants = data['businesses']
+
+        # Use lodash to pick 5 random so you'll get slightly different results each time
+        $scope.restaurants = _.sampleSize(data['businesses'], 5)
         $scope.keywords = ""
+
         $scope.$apply()
 ])
