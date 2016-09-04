@@ -10,6 +10,11 @@
   %hr
   %section.row
     %h1.text-center.h2 Why don't you try
-    %ul.text-center
-      %li{"ng-repeat" => "restaurant in restaurants"}
-        %h5 {{restaurant.name}}
+    %table.table-striped.text-center.col-md-6.col-md-offset-3
+      %tbody
+        %tr{"ng-repeat" => "restaurant in restaurants"}
+          %td
+            %img.restaurant{"ng-src" => "{{restaurant.image_url}}" }
+          %td.title
+            %a{"ng-href" => "{{restaurant.url}}"} {{restaurant.name}}
+          %td.row {{restaurant.snippet_text}}
